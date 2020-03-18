@@ -2,8 +2,34 @@
 
 import argparse
 
+
 def find_max_profit(prices):
-  pass
+  #money made set to 0
+  money = -10000000000000000
+  #iterate thru prices
+  buys = 0
+  for i in range(0, len(prices) - 1):
+    #iterate thru prices again with j
+    for j in range(1, len(prices) - 1):
+      #make sure j is after i
+      if j > i:
+        #make sure j - i is > current possible money
+        if prices[j] - prices[i] > money:
+          # j - i = money made!
+          money = prices[j] - prices[i] 
+          # made a good purchase!
+          buys += 1
+
+  if buys >= 1:
+    return money
+  
+
+    
+
+print(find_max_profit([10, 7, 5, 8, 11, 9]))
+
+
+
 
 
 if __name__ == '__main__':
