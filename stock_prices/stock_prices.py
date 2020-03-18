@@ -5,17 +5,20 @@ import argparse
 
 def find_max_profit(prices):
   #money made set to 0
-  money = -10000000000000000
+  money = 0
   #iterate thru prices
+  buys = 0
   for i in range(0, len(prices) - 1):
     #iterate thru prices again with j
     for j in range(1, len(prices) - 1):
       #make sure j is after i
       if j > i:
         #make sure j - i is > current possible money
-        if prices[j] - prices[i] > money:
+        #if money = -100000000000 is cheating change if statement below to have or buys == 0
+        if prices[j] - prices[i] > money or buys == 0:
           # j - i = money made!
           money = prices[j] - prices[i] 
+          buys += 1
 
   return money
 
