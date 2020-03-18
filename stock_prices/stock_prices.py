@@ -6,8 +6,9 @@ import argparse
 def find_max_profit(prices):
   #money made set to 0
   money = 0
-  #iterate thru prices
+  #set purchases to 0
   buys = 0
+  #iterate thru prices
   for i in range(0, len(prices) - 1):
     #iterate thru prices again with j
     for j in range(1, len(prices) - 1):
@@ -18,6 +19,7 @@ def find_max_profit(prices):
         if prices[j] - prices[i] > money or buys == 0:
           # j - i = money made!
           money = prices[j] - prices[i] 
+          #increment purchases
           buys += 1
 
   return money
