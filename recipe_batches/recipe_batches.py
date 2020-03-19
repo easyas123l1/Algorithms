@@ -3,7 +3,19 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  # set batches made to 0
+  batches = None
+  for key in recipe:
+    if key in ingredients.keys():
+      possible = ingredients[key] // recipe[key]
+      if batches == None:
+        batches = possible
+      if possible < batches:
+        batches = possible
+    else:
+      return 0
+
+  return batches
 
 
 if __name__ == '__main__':
